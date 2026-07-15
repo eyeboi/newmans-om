@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newman's OM — Fresh Sourdough, Baked in Jacaranda Cay</title>
+<meta name="description" content="Newman's OM — small-batch artisan sourdough and handmade pasta, baked every day in Jacaranda Cay. Baked for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff8f5;
+  --bg-2:#fff0f4;
+  --bg-3:#ffe6ef;
+  --panel:#ffffff;
+  --ink:#40202f;
+  --ink-2:#7a5060;
+  --ink-faint:#b092a0;
+  --pink:#e85b96;
+  --pink-deep:#d1387b;
+  --pink-bright:#ff7fb2;
+  --pink-soft:#ffdcea;
+  --gold:#c78a2a;
+  --gold-bright:#e0a53c;
+  --berry:#b2356c;
+  --blue:#5573c0;
+  --line:rgba(64,32,47,.12);
+  --line-soft:rgba(64,32,47,.06);
+  --shadow:rgba(209,56,123,.16);
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Inter",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:360;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--pink);color:#fff}
+
+/* ---- soft grain overlay ---- */
+body::after{
+  content:"";position:fixed;inset:-100%;z-index:999;pointer-events:none;opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}20%{transform:translate(-15%,5%)}
+  30%{transform:translate(7%,-25%)}40%{transform:translate(-5%,25%)}50%{transform:translate(-15%,10%)}
+  60%{transform:translate(15%,0)}70%{transform:translate(0,15%)}80%{transform:translate(3%,35%)}90%{transform:translate(-10%,10%)}
+}
+
+/* ---- nav ---- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem clamp(1.25rem,4vw,3rem);
+  transition:background .4s,backdrop-filter .4s,border-color .4s,padding .4s,box-shadow .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(255,248,245,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);padding:.8rem clamp(1.25rem,4vw,3rem);box-shadow:0 6px 30px rgba(209,56,123,.08);
+}
+.nav-logo{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.nav-logo img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:var(--pink-soft)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{
+  color:var(--ink-2);text-decoration:none;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-5px;width:100%;height:1.5px;background:var(--pink);
+  transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.65,0,.35,1);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{
+  border:1.5px solid var(--pink);color:var(--pink-deep)!important;padding:.5rem 1.1rem;border-radius:99px;
+}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--pink);color:#fff!important}
+@media(max-width:760px){.nav-links li:not(:last-child){display:none}}
+@media(max-width:520px){
+  nav{padding:.9rem 1rem}
+  nav.scrolled{padding:.7rem 1rem}
+  .nav-logo{font-size:1.05rem;gap:.45rem}
+  .nav-logo img{width:28px;height:28px}
+  .nav-cta{padding:.45rem .9rem;font-size:.68rem;letter-spacing:.1em}
+  .hero-kicker{letter-spacing:.26em;font-size:.7rem}
+}
+
+/* ---- hero ---- */
+header{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:6rem 1.5rem 4rem;isolation:isolate;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-2;
+  background:url("assets/hero_bright.jpg") center 60%/cover no-repeat;
+  animation:heroZoom 12s ease-out forwards;
+  will-change:transform;
+}
+@keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+header::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(255,248,245,.62) 0%,rgba(255,242,246,.34) 40%,rgba(255,238,244,.6) 76%,var(--bg) 100%);
+}
+.hero-kicker{
+  display:flex;align-items:center;gap:1rem;
+  font-size:.78rem;letter-spacing:.42em;text-transform:uppercase;color:var(--pink-deep);font-weight:600;
+  opacity:0;animation:riseIn 1s .25s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-kicker::before,.hero-kicker::after{content:"";width:44px;height:1.5px;background:var(--pink);opacity:.8}
+h1.hero-title{
+  font-family:var(--serif);font-weight:560;font-size:clamp(3.4rem,11.5vw,8.5rem);line-height:.98;letter-spacing:-.015em;
+  margin:1.4rem 0 .4rem;color:var(--ink);text-shadow:0 2px 34px rgba(255,255,255,.85),0 1px 3px rgba(255,255,255,.9);
+}
+.hero-title .word{display:inline-block;overflow:hidden;vertical-align:top}
+.hero-title .word span{display:inline-block;transform:translateY(110%);animation:slideUp 1.1s cubic-bezier(.22,1,.36,1) forwards}
+.hero-title .word:nth-child(1) span{animation-delay:.45s}
+.hero-title .word:nth-child(2) span{animation-delay:.58s}
+.hero-title em{font-style:italic;color:var(--pink-deep);font-weight:440}
+@keyframes slideUp{to{transform:translateY(0)}}
+.hero-sub{
+  font-size:clamp(1rem,1.6vw,1.2rem);color:var(--ink);max-width:34rem;font-weight:420;
+  text-shadow:0 1px 16px rgba(255,255,255,.9);
+  opacity:0;animation:riseIn 1s .95s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-sub strong{color:var(--pink-deep);font-weight:600}
+.hero-actions{
+  display:flex;gap:1rem;margin-top:2.4rem;flex-wrap:wrap;justify-content:center;
+  opacity:0;animation:riseIn 1s 1.15s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.btn{
+  font-family:var(--sans);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  padding:1rem 2.1rem;border-radius:99px;text-decoration:none;transition:transform .3s,box-shadow .3s,background .3s,color .3s;
+  display:inline-block;
+}
+.btn-gold{background:var(--pink);color:#fff;box-shadow:0 10px 30px rgba(232,91,150,.4)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(232,91,150,.55);background:var(--pink-deep)}
+.btn-ghost{border:1.5px solid var(--pink-deep);color:var(--pink-deep);background:rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+.btn-ghost:hover{transform:translateY(-3px);background:#fff;border-color:var(--pink);color:var(--pink-deep)}
+.hero-badge{
+  position:absolute;bottom:7.5rem;right:clamp(1rem,6vw,5rem);width:118px;height:118px;z-index:2;
+  opacity:0;animation:riseIn 1s 1.5s forwards;
+}
+.hero-badge svg{width:100%;height:100%;animation:spin 22s linear infinite;filter:drop-shadow(0 2px 10px rgba(255,255,255,.7))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-badge .badge-center{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.6rem;color:var(--pink-deep);font-style:italic;
+}
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-2);
+  opacity:0;animation:riseIn 1s 1.7s forwards;
+}
+.scroll-hint::after{
+  content:"";display:block;width:1.5px;height:34px;background:linear-gradient(var(--pink),transparent);
+  margin:.6rem auto 0;animation:drip 1.8s ease-in-out infinite;
+}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:700px){.hero-badge{display:none}}
+
+/* ---- marquee ---- */
+.marquee{
+  background:linear-gradient(90deg,var(--pink),var(--pink-deep));color:#fff;overflow:hidden;padding:.85rem 0;
+  transform:rotate(-1.2deg) scale(1.02);margin:-1.4rem 0 0;position:relative;z-index:5;
+  box-shadow:0 12px 40px rgba(209,56,123,.28);
+}
+.marquee-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.marquee span{
+  font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:0 1.4rem;white-space:nowrap;display:flex;align-items:center;gap:2.8rem;
+}
+.marquee span::after{content:"✦";font-size:.8rem;color:rgba(255,255,255,.85)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---- shared section chrome ---- */
+section{padding:clamp(5rem,10vw,8.5rem) clamp(1.25rem,5vw,4rem);position:relative;scroll-margin-top:64px}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-kicker{
+  font-size:.74rem;letter-spacing:.4em;text-transform:uppercase;color:var(--pink-deep);font-weight:600;
+  display:flex;align-items:center;gap:.9rem;margin-bottom:1.1rem;
+}
+.sec-kicker::before{content:"";width:38px;height:1.5px;background:var(--pink)}
+h2{
+  font-family:var(--serif);font-weight:520;font-size:clamp(2.3rem,5vw,3.9rem);line-height:1.06;letter-spacing:-.01em;
+  max-width:22ch;color:var(--ink);
+}
+h2 em{font-style:italic;color:var(--pink-deep);font-weight:440}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:clamp(2.5rem,5vw,4rem);flex-wrap:wrap}
+.sec-note{max-width:26rem;color:var(--ink-2);font-size:.95rem}
+
+/* ---- reveal on scroll ---- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---- story ---- */
+.story{background:var(--bg)}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,6rem);align-items:center}
+.story-art{position:relative;display:flex;justify-content:center}
+.story-art img{
+  width:min(100%,420px);border-radius:50% 50% 46% 54%/52% 48% 52% 48%;
+  border:1px solid var(--line);box-shadow:0 30px 70px rgba(209,56,123,.22);background:var(--pink-soft);
+}
+.story-art::before{
+  content:"";position:absolute;inset:-7%;border:1.5px dashed rgba(232,91,150,.4);border-radius:50%;
+  animation:spin 40s linear infinite;
+}
+.story p{color:var(--ink-2);margin-top:1.4rem;font-size:1.02rem;max-width:32rem}
+.story p strong{color:var(--ink);font-weight:600}
+.story-stats{display:flex;gap:2.6rem;margin-top:2.4rem;flex-wrap:wrap}
+.stat .num{font-family:var(--serif);font-size:2.3rem;color:var(--pink-deep);font-weight:560;line-height:1}
+.stat .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-top:.4rem}
+@media(max-width:860px){.story .wrap{grid-template-columns:1fr}.story-art{order:-1}}
+
+/* ---- menu grids ---- */
+.menu{background:linear-gradient(var(--bg) 0%,var(--bg-2) 16%,var(--bg-2) 84%,var(--bg) 100%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1.1rem}
+.card{
+  position:relative;border:1px solid var(--line);border-radius:18px;padding:1.7rem 1.6rem 1.5rem;
+  background:var(--panel);
+  transition:transform .45s cubic-bezier(.22,1,.36,1),border-color .45s,background .45s,box-shadow .45s;
+  overflow:hidden;box-shadow:0 4px 18px rgba(209,56,123,.05);
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--pink),var(--gold-bright));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.card:hover{transform:translateY(-7px);border-color:rgba(232,91,150,.45);box-shadow:0 24px 46px rgba(209,56,123,.18);background:linear-gradient(160deg,var(--pink-soft),#fff 60%)}
+.card:hover::before{transform:scaleX(1)}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.card h3{font-family:var(--serif);font-weight:560;font-size:1.32rem;letter-spacing:.005em;line-height:1.2;color:var(--ink)}
+.price{
+  font-family:var(--serif);font-style:italic;color:var(--pink-deep);font-size:1.2rem;white-space:nowrap;font-weight:560;
+}
+.card .ing{color:var(--ink-2);font-size:.84rem;line-height:1.55;margin-top:.65rem}
+.tag{
+  display:inline-block;margin-top:.95rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  color:var(--pink-deep);border:1.5px solid rgba(232,91,150,.4);padding:.28rem .7rem;border-radius:99px;background:rgba(255,220,234,.4);
+}
+.tag.blue{color:var(--blue);border-color:rgba(85,115,192,.45);background:rgba(85,115,192,.08)}
+.card.feature{
+  background:linear-gradient(160deg,var(--pink-soft),#fff 75%);border-color:rgba(232,91,150,.4);box-shadow:0 10px 30px rgba(209,56,123,.12);
+}
+.card.feature .tag{background:var(--pink);color:#fff;border-color:var(--pink)}
+/* stagger children */
+.grid.reveal-stagger .card{opacity:0;transform:translateY(30px)}
+.grid.reveal-stagger.in .card{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1),border-color .45s,background .45s,box-shadow .45s}
+.grid.reveal-stagger.in .card:hover{transform:translateY(-7px)}
+
+/* ---- pasta ---- */
+.pasta{background:var(--bg)}
+.pasta-list{border-top:1px solid var(--line)}
+.pasta-row{
+  display:flex;align-items:baseline;gap:1.2rem;padding:1.6rem .4rem;border-bottom:1px solid var(--line);
+  transition:padding .35s,background .35s;position:relative;
+}
+.pasta-row:hover{padding-left:1.2rem;background:linear-gradient(90deg,var(--pink-soft),transparent)}
+.pasta-row h3{font-family:var(--serif);font-weight:540;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--ink)}
+.pasta-row .dots{flex:1;border-bottom:1.5px dotted rgba(64,32,47,.25);transform:translateY(-6px)}
+.pasta-row .price{font-size:1.3rem}
+.pasta-note{margin-top:1.6rem;color:var(--ink-faint);font-size:.9rem;font-style:italic}
+
+/* ---- order ---- */
+.order{background:linear-gradient(var(--bg),var(--bg-3))}
+.order .wrap{max-width:1100px}
+.order-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;margin-top:3rem}
+.order-step{
+  border:1px solid var(--line);border-radius:18px;padding:2rem 1.7rem;position:relative;
+  background:var(--panel);transition:transform .4s,border-color .4s,box-shadow .4s;box-shadow:0 4px 18px rgba(209,56,123,.05);
+}
+.order-step:hover{transform:translateY(-5px);border-color:rgba(232,91,150,.45);box-shadow:0 18px 40px rgba(209,56,123,.15)}
+.order-step .n{
+  font-family:var(--serif);font-style:italic;font-size:2.6rem;color:var(--pink);line-height:1;
+}
+.order-step h3{font-family:var(--serif);font-weight:560;font-size:1.25rem;margin:.9rem 0 .5rem;color:var(--ink)}
+.order-step p{color:var(--ink-2);font-size:.9rem}
+.order-step p b{color:var(--pink-deep);font-weight:600}
+.promo{
+  margin-top:3.2rem;border:2px dashed rgba(232,91,150,.55);border-radius:20px;padding:2rem;
+  display:flex;align-items:center;justify-content:center;gap:1.4rem;flex-wrap:wrap;text-align:center;
+  background:linear-gradient(120deg,var(--pink-soft),rgba(255,236,244,.6));
+}
+.promo .big{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.6rem);font-weight:600;color:var(--pink-deep);font-style:italic}
+.promo p{color:var(--ink-2);font-size:.95rem;max-width:26rem}
+.pay{display:flex;gap:1rem;margin-top:2.6rem;flex-wrap:wrap;justify-content:center}
+.pay-chip{
+  display:flex;align-items:center;gap:.6rem;border:1px solid var(--line);border-radius:99px;padding:.75rem 1.4rem;
+  font-size:.9rem;color:var(--ink);background:var(--panel);box-shadow:0 4px 14px rgba(209,56,123,.06);
+}
+.pay-chip b{color:var(--pink-deep);font-weight:600}
+.pay-chip .ic{font-size:1rem}
+
+/* ---- footer ---- */
+footer{
+  border-top:1px solid var(--line);padding:4rem clamp(1.25rem,5vw,4rem) 2.5rem;
+  background:linear-gradient(var(--bg-3),var(--bg));text-align:center;
+}
+.foot-logo{font-family:var(--serif);font-size:clamp(2.6rem,8vw,5rem);font-weight:600;letter-spacing:-.01em;line-height:1;color:var(--ink)}
+.foot-logo em{font-style:italic;color:var(--pink-deep);font-weight:440}
+.foot-tag{color:var(--ink-faint);letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;margin-top:1rem}
+.foot-meta{margin-top:2.4rem;color:var(--ink-faint);font-size:.82rem;display:flex;gap:.4rem 2rem;justify-content:center;flex-wrap:wrap}
+.foot-meta span b{color:var(--ink-2);font-weight:600}
+.foot-fine{margin-top:2.2rem;color:var(--ink-faint);font-size:.72rem}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="#top"><img src="assets/schnauzer_bright.png" alt="Newman's OM schnauzer mark">Newman's&nbsp;OM</a>
+  <ul class="nav-links">
+    <li><a href="#classics">Classics</a></li>
+    <li><a href="#signature">Signature</a></li>
+    <li><a href="#pasta">Pasta</a></li>
+    <li><a class="nav-cta" href="#order">How to Order</a></li>
+  </ul>
+</nav>
+
+<header id="top">
+  <div class="hero-bg"></div>
+  <p class="hero-kicker">Fresh Sourdough · Jacaranda Cay</p>
+  <h1 class="hero-title"><span class="word"><span>Newman's</span></span> <span class="word"><span><em>OM</em></span></span></h1>
+  <p class="hero-sub">Small-batch artisan sourdough, naturally leavened and <strong>baked every day</strong> — baked for you.</p>
+  <div class="hero-actions">
+    <a class="btn btn-gold" href="#classics">Explore the Menu</a>
+    <a class="btn btn-ghost" href="#order">Order for Tomorrow</a>
+  </div>
+  <div class="hero-badge" aria-hidden="true">
+    <svg viewBox="0 0 100 100">
+      <defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+      <text fill="#d1387b" font-size="9" font-family="Inter,sans-serif" font-weight="600">
+        <textPath href="#circ" textLength="237" lengthAdjust="spacingAndGlyphs">BAKED EVERYDAY · BAKED FOR YOU · </textPath>
+      </text>
+    </svg>
+    <div class="badge-center">✦</div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Fresh Sourdough</span><span>Baked Everyday</span><span>50% Off Your First Order</span><span>Handmade Pasta</span><span>Baked in Jacaranda Cay</span>
+  </div>
+</div>
+
+<section class="story">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-kicker">The Bakery</p>
+      <h2>Slow ferments. <em>Honest loaves.</em></h2>
+      <p>Every loaf at Newman's OM starts with filtered water, stone-ground flour, salt — and time. Traditional sourdough takes a full <strong>24 hours</strong> from mix to crumb, naturally leavened the old way, right here in <strong>Jacaranda Cay</strong>.</p>
+      <p>From a classic plain loaf to butterfly pea blossom and smoked-gruyère French onion, everything is mixed, shaped, and baked to order by Paul Newman — with quality control handled by the resident schnauzer.</p>
+      <div class="story-stats">
+        <div class="stat reveal"><div class="num">24h</div><div class="lbl">Slow Ferment</div></div>
+        <div class="stat reveal"><div class="num">18+</div><div class="lbl">Flavors</div></div>
+        <div class="stat reveal"><div class="num">0</div><div class="lbl">Preservatives</div></div>
+      </div>
+    </div>
+    <div class="story-art reveal">
+      <img src="assets/schnauzer_bright.png" alt="Line illustration of the Newman's OM schnauzer">
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="classics">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <p class="sec-kicker">The Menu · 01</p>
+        <h2>Classic <em>Flavors</em></h2>
+      </div>
+      <p class="sec-note">The everyday lineup — simple ingredients, long fermentation, crackling crust.</p>
+    </div>
+    <div class="grid reveal-stagger">
+      <div class="card"><div class="card-top"><h3>Plain</h3><div class="price">$8</div></div><p class="ing">Filtered water, unbleached bread flour, whole wheat flour, salt</p></div>
+      <div class="card"><div class="card-top"><h3>Whole Wheat</h3><div class="price">$9</div></div><p class="ing">Filtered water, whole wheat flour, unbleached bread flour, salt</p></div>
+      <div class="card"><div class="card-top"><h3>Rye</h3><div class="price">$10</div></div><p class="ing">Filtered water, medium dark rye flour, unbleached bread flour, whole wheat flour, molasses, salt, caraway seeds</p></div>
+      <div class="card"><div class="card-top"><h3>Pumpernickel</h3><div class="price">$11</div></div><p class="ing">Filtered water, medium dark rye flour, unbleached bread flour, whole wheat flour, cocoa powder, molasses, salt, caraway seeds</p></div>
+      <div class="card"><div class="card-top"><h3>Cinnamon Raisin</h3><div class="price">$10</div></div><p class="ing">Filtered water, unbleached bread flour, whole wheat flour, raisins, brown sugar, salt</p></div>
+      <div class="card"><div class="card-top"><h3>Garlic Rosemary Parmesan</h3><div class="price">$10</div></div><p class="ing">Filtered water, unbleached bread flour, whole wheat flour, parmesan, roasted garlic (garlic, butter), rosemary, salt</p></div>
+      <div class="card"><div class="card-top"><h3>Jalapeño Cheddar</h3><div class="price">$11</div></div><p class="ing">Filtered water, unbleached bread flour, whole wheat flour, extra sharp cheddar, fresh jalapeños, salt</p><span class="tag">Crowd Favorite</span></div>
+      <div class="card"><div class="card-top"><h3>Gluten Free</h3><div class="price">$15</div></div><p class="ing">Filtered water, King Arthur gluten-free bread flour, salt</p><span class="tag">GF</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="signature" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <p class="sec-kicker">The Menu · 02</p>
+        <h2>Signature <em>Flavors</em></h2>
+      </div>
+      <p class="sec-note">Where the test kitchen shows off — bone-broth bakes, blue-tea swirls, and loaves you won't find anywhere else.</p>
+    </div>
+    <div class="grid reveal-stagger">
+      <div class="card"><div class="card-top"><h3>Butterfly Pea Blossom</h3><div class="price">$10</div></div><p class="ing">Butterfly pea blossom tea (filtered water, butterfly pea blossom), unbleached bread flour, whole wheat flour, salt</p><span class="tag blue">Naturally Blue</span></div>
+      <div class="card"><div class="card-top"><h3>Protein</h3><div class="price">$12</div></div><p class="ing">Chicken bone broth, unbleached bread flour, whole wheat flour, salt</p><span class="tag">Bone Broth</span></div>
+      <div class="card"><div class="card-top"><h3>Double Chocolate</h3><div class="price">$10</div></div><p class="ing">Coffee (filtered water, coffee grounds, cinnamon), unbleached bread flour, whole wheat flour, semisweet chocolate chips, brown sugar, salt, cinnamon</p></div>
+      <div class="card"><div class="card-top"><h3>Lemon Blueberry Swirl</h3><div class="price">$12</div></div><p class="ing">Unbleached bread flour, filtered water, butterfly pea blossom tea, whole wheat flour, fresh blueberries, brown sugar, salt, lemon zest, turmeric</p><span class="tag blue">Swirled</span></div>
+      <div class="card feature"><div class="card-top"><h3>French Onion</h3><div class="price">$15</div></div><p class="ing">Chicken bone broth, unbleached bread flour, whole wheat flour, caramelized onions (sweet yellow onion, butter), smoked gruyère cheese, salt</p><span class="tag">House Special</span></div>
+      <div class="card"><div class="card-top"><h3>Sweet Potato</h3><div class="price">$10</div></div><p class="ing">Filtered water, unbleached bread flour, roasted sweet potato (sweet potato, salt), whole wheat flour, salt</p></div>
+      <div class="card"><div class="card-top"><h3>Pizza</h3><div class="price">$12</div></div><p class="ing">Tomato sauce, unbleached bread flour, filtered water, whole wheat flour, parmesan, salt, Italian herbs</p></div>
+      <div class="card"><div class="card-top"><h3>Seeded</h3><div class="price">$11</div></div><p class="ing">Filtered water, unbleached bread flour, whole wheat flour, organic 6-seed blend (brown flax, golden flax, sunflower, sesame, chia, pumpkin), salt</p></div>
+      <div class="card"><div class="card-top"><h3>Surprise Me</h3><div class="price">$8</div></div><p class="ing">A random selection from the menu — or the test kitchen</p><span class="tag">Feeling Lucky</span></div>
+      <div class="card"><div class="card-top"><h3>Create Your Own</h3><div class="price">$MP</div></div><p class="ing">Dream it up — a custom loaf of sourdough, built around whatever you're craving</p><span class="tag">Custom</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pasta" id="pasta">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <p class="sec-kicker">The Menu · 03</p>
+        <h2>Handmade <em>Pasta</em></h2>
+      </div>
+      <p class="sec-note">Two ingredients, rolled by hand: all-purpose flour and eggs. Sold by the pound.</p>
+    </div>
+    <div class="pasta-list reveal">
+      <div class="pasta-row"><h3>Fettuccine</h3><div class="dots"></div><div class="price">$10 / lb</div></div>
+      <div class="pasta-row"><h3>Linguini</h3><div class="dots"></div><div class="price">$10 / lb</div></div>
+      <div class="pasta-row"><h3>Bowtie</h3><div class="dots"></div><div class="price">$12 / lb</div></div>
+      <div class="pasta-row"><h3>Penne</h3><div class="dots"></div><div class="price">$12 / lb</div></div>
+    </div>
+    <p class="pasta-note reveal">All pasta made fresh with all-purpose flour &amp; eggs — nothing else.</p>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+      <p class="sec-kicker" style="justify-content:center">Ordering</p>
+      <h2 style="max-width:none">Good bread takes <em>24 hours</em></h2>
+    </div>
+    <div class="order-grid">
+      <div class="order-step reveal"><div class="n">01</div><h3>Pick your loaf</h3><p>Choose from 18+ classic and signature flavors — or create your own.</p></div>
+      <div class="order-step reveal"><div class="n">02</div><h3>Text before 9 AM</h3><p>Place or text your order <b>before 9 AM</b> to guarantee next-day pickup. Late orders will be notified if they can be made for the following day.</p></div>
+      <div class="order-step reveal"><div class="n">03</div><h3>We bake overnight</h3><p>Traditional sourdough ferments for a full <b>24 hours</b> — mixed, shaped, and baked fresh for you.</p></div>
+      <div class="order-step reveal"><div class="n">04</div><h3>Pick up next day</h3><p>Collect your loaf in <b>Jacaranda Cay</b>, still warm if you time it right.</p></div>
+    </div>
+    <div class="promo reveal">
+      <div class="big">50% off</div>
+      <p>your first order — because the first loaf is how it starts.</p>
+    </div>
+    <div class="pay reveal">
+      <div class="pay-chip"><span class="ic">💬</span>Text orders: <b>954-598-3667</b></div>
+      <div class="pay-chip"><span class="ic">🏦</span>Zelle: <b>954-598-3667</b></div>
+      <div class="pay-chip"><span class="ic">💜</span>Venmo: <b>@naul_pewman</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="reveal in">
+    <div class="foot-logo">Newman's <em>OM</em></div>
+    <p class="foot-tag">Fresh Sourdough · Baked in Jacaranda Cay</p>
+    <div class="foot-meta">
+      <span>Baker: <b>Paul Newman</b></span>
+      <span>Orders: <b>954-598-3667</b></span>
+      <span>Venmo: <b>@naul_pewman</b></span>
+    </div>
+    <p class="foot-fine">© 2026 Newman's OM · Baked everyday, baked for you.</p>
+  </div>
+</footer>
+
+<script>
+// duplicate marquee content for seamless loop
+const track=document.getElementById('marqueeTrack');
+track.innerHTML+=track.innerHTML;
+
+// nav background on scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>io.observe(el));
+
+// stagger delays for menu cards
+document.querySelectorAll('.reveal-stagger').forEach(grid=>{
+  grid.querySelectorAll('.card').forEach((c,i)=>c.style.transitionDelay=(i*.06)+'s');
+});
+
+// subtle hero parallax
+const heroBg=document.querySelector('.hero-bg');
+addEventListener('scroll',()=>{
+  const y=Math.min(scrollY,innerHeight);
+  heroBg.style.transform=`translateY(${y*.28}px) scale(1)`;
+},{passive:true});
+</script>
+</body>
+</html>
