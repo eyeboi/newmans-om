@@ -8,9 +8,9 @@
 <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#ff7fb2"/><stop offset=".55" stop-color="#e85b96"/>
   <stop offset="1" stop-color="#e0a53c"/></linearGradient>
-<linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#fff8f5"/>
-  <stop offset="1" stop-color="#fff0f4"/></linearGradient>
+<radialGradient id="card" cx="50%" cy="48%" r="72%">
+  <stop offset="0" stop-color="#fffdfc"/><stop offset=".5" stop-color="#fff4f8"/>
+  <stop offset=".82" stop-color="#ffe4ee"/><stop offset="1" stop-color="#ffd2e4"/></radialGradient>
 <radialGradient id="med" cx="50%" cy="40%" r="70%">
   <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ffdcea"/></radialGradient>
 <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
@@ -22,7 +22,6 @@
 <rect x="30" y="40" width="818" height="968" rx="46" fill="#d1387b" opacity="0.18" filter="url(#soft)"/>
 <rect x="30" y="30" width="818" height="968" rx="46" fill="url(#card)"/>
 <g clip-path="url(#cardclip)">
-<rect x="30" y="30" width="818" height="7" fill="url(#bar)"/>
 <text x="195.0" y="106" text-anchor="start" font-family="Fraunces,Georgia,serif" font-size="31" font-weight="500" font-style="italic" fill="#7a5060">Baked every day,</text><text x="473.0" y="106" text-anchor="start" font-family="Fraunces,Georgia,serif" font-size="31" font-weight="500" font-style="italic" fill="#d1387b">baked for you</text>
 <g fill="url(#dot)">
 <circle cx="329.0" cy="161.0" r="11.4"/>
