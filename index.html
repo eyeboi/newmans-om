@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Newman's OM — Fresh Sourdough, Baked in Jacaranda Cay</title>
 <meta name="description" content="Newman's OM — small-batch artisan sourdough and handmade pasta, baked every day in Jacaranda Cay. Baked for you.">
+
+<!-- Open Graph / iMessage / social share preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Newman's OM">
+<meta property="og:title" content="Newman's OM — Fresh Sourdough, Baked Daily in Jacaranda Cay">
+<meta property="og:description" content="Small-batch artisan sourdough & handmade pasta, naturally leavened and baked fresh every day. Order for tomorrow — baked for you.">
+<meta property="og:url" content="https://newmansom.com/">
+<meta property="og:image" content="https://newmansom.com/assets/schnauzer_bright.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Newman's OM schnauzer line-drawing mark">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Newman's OM — Fresh Sourdough, Baked Daily in Jacaranda Cay">
+<meta name="twitter:description" content="Small-batch artisan sourdough & handmade pasta, baked fresh every day in Jacaranda Cay.">
+<meta name="twitter:image" content="https://newmansom.com/assets/schnauzer_bright.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..700&display=swap" rel="stylesheet">
@@ -169,6 +187,11 @@ h1.hero-title{
 }
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media(max-width:700px){.hero-badge{display:none}}
+/* mobile: portrait crop hides the corner loaves — shift crop to a loaf & lift the wash */
+@media(max-width:640px){
+  .hero-bg{background-position:left 18%;background-size:cover}
+  header::before{background:linear-gradient(180deg,rgba(255,248,245,.34) 0%,rgba(255,242,246,.20) 42%,rgba(255,238,244,.5) 78%,var(--bg) 100%)}
+}
 
 /* ---- marquee ---- */
 .marquee{
