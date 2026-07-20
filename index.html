@@ -132,10 +132,11 @@ header::before{
 }
 .hero-kicker{
   display:flex;align-items:center;gap:1rem;
-  font-size:.78rem;letter-spacing:.42em;text-transform:uppercase;color:var(--pink-deep);font-weight:600;
+  font-size:.78rem;letter-spacing:.42em;text-transform:uppercase;color:var(--ink);font-weight:700;
+  text-shadow:0 1px 12px rgba(255,255,255,.95),0 1px 2px rgba(255,255,255,.95);
   opacity:0;animation:riseIn 1s .25s cubic-bezier(.22,1,.36,1) forwards;
 }
-.hero-kicker::before,.hero-kicker::after{content:"";width:44px;height:1.5px;background:var(--pink);opacity:.8}
+.hero-kicker::before,.hero-kicker::after{content:"";width:44px;height:2px;background:var(--pink-deep);opacity:.9;box-shadow:0 0 6px rgba(255,255,255,.9)}
 h1.hero-title{
   font-family:var(--serif);font-weight:560;font-size:clamp(3.4rem,11.5vw,8.5rem);line-height:.98;letter-spacing:-.015em;
   margin:1.4rem 0 .4rem;color:var(--ink);text-shadow:0 2px 34px rgba(255,255,255,.85),0 1px 3px rgba(255,255,255,.9);
