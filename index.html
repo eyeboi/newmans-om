@@ -325,6 +325,9 @@ h2 em{font-style:italic;color:var(--pink-deep);font-weight:440}
   display:flex;align-items:center;gap:.6rem;border:1px solid var(--line);border-radius:99px;padding:.75rem 1.4rem;
   font-size:.9rem;color:var(--ink);background:var(--panel);box-shadow:0 4px 14px rgba(209,56,123,.06);
 }
+.pay-chip-link{text-decoration:none;transition:transform .25s,border-color .25s,box-shadow .25s}
+.pay-chip-link:hover,.pay-chip-link:focus-visible{transform:translateY(-2px);border-color:rgba(232,91,150,.55);box-shadow:0 10px 24px rgba(209,56,123,.14)}
+.pay-chip-link:focus-visible{outline:3px solid rgba(232,91,150,.25);outline-offset:3px}
 .pay-chip b{color:var(--pink-deep);font-weight:600}
 .pay-chip .ic{font-size:1rem}
 
@@ -483,7 +486,7 @@ footer{
     <div class="pay reveal">
       <div class="pay-chip"><span class="ic">💬</span>Text orders: <b><a class="sms-link" href="sms:+19545983667" aria-label="Text Newman's OM at 954-598-3667">954-598-3667</a></b></div>
       <div class="pay-chip"><span class="ic">🏦</span>Zelle: <b>954-598-3667</b></div>
-      <div class="pay-chip"><span class="ic">💜</span>Venmo: <b>@naul_pewman</b></div>
+      <a class="pay-chip pay-chip-link" href="https://venmo.com/u/naul_pewman" aria-label="Pay Newman's OM with Venmo"><span class="ic">💜</span>Venmo: <b>@naul_pewman</b></a>
     </div>
   </div>
 </section>
@@ -495,7 +498,7 @@ footer{
     <div class="foot-meta">
       <span>Baker: <b>Paul Newman</b></span>
       <span>Orders: <b><a class="sms-link" href="sms:+19545983667" aria-label="Text Newman's OM at 954-598-3667">954-598-3667</a></b></span>
-      <span>Venmo: <b>@naul_pewman</b></span>
+      <span>Venmo: <b><a class="sms-link" href="https://venmo.com/u/naul_pewman" aria-label="Pay Newman's OM with Venmo">@naul_pewman</a></b></span>
     </div>
     <p class="foot-fine">© 2026 Newman's OM · Baked everyday, baked for you.</p>
   </div>
