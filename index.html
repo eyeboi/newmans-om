@@ -167,6 +167,8 @@ h1.hero-title{
 .btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(232,91,150,.55);background:var(--pink-deep)}
 .btn-ghost{border:1.5px solid var(--pink-deep);color:var(--pink-deep);background:rgba(255,255,255,.55);backdrop-filter:blur(4px)}
 .btn-ghost:hover{transform:translateY(-3px);background:#fff;border-color:var(--pink);color:var(--pink-deep)}
+.sms-link{color:inherit;text-decoration:underline;text-decoration-color:var(--pink);text-underline-offset:.18em;transition:color .25s}
+.sms-link:hover{color:var(--pink-deep)}
 .hero-badge{
   position:absolute;bottom:7.5rem;right:clamp(1rem,6vw,5rem);width:118px;height:118px;z-index:2;
   opacity:0;animation:riseIn 1s 1.5s forwards;
@@ -479,7 +481,7 @@ footer{
       <p>your first order, because the first loaf is how it starts.</p>
     </div>
     <div class="pay reveal">
-      <div class="pay-chip"><span class="ic">💬</span>Text orders: <b>954-598-3667</b></div>
+      <div class="pay-chip"><span class="ic">💬</span>Text orders: <b><a class="sms-link" href="sms:+19545983667" aria-label="Text Newman's OM at 954-598-3667">954-598-3667</a></b></div>
       <div class="pay-chip"><span class="ic">🏦</span>Zelle: <b>954-598-3667</b></div>
       <div class="pay-chip"><span class="ic">💜</span>Venmo: <b>@naul_pewman</b></div>
     </div>
@@ -492,7 +494,7 @@ footer{
     <p class="foot-tag">Fresh Sourdough · Baked in Jacaranda Cay</p>
     <div class="foot-meta">
       <span>Baker: <b>Paul Newman</b></span>
-      <span>Orders: <b>954-598-3667</b></span>
+      <span>Orders: <b><a class="sms-link" href="sms:+19545983667" aria-label="Text Newman's OM at 954-598-3667">954-598-3667</a></b></span>
       <span>Venmo: <b>@naul_pewman</b></span>
     </div>
     <p class="foot-fine">© 2026 Newman's OM · Baked everyday, baked for you.</p>
