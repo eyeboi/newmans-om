@@ -25,7 +25,7 @@ You can also just ask the assistant: *"replace the classics photo with
 | File | Where it appears | Shows |
 |---|---|---|
 | `classics_01.jpg` | Banner above Classic Flavors | Three scored boules on a cooling rack |
-| `sig_seeded_01.jpg` | Banner above Signature Flavors | Seeded loaf, one slice cut |
+| `sig_chocolate_01.jpg` | Banner above Signature Flavors | Double chocolate loaf, dark crumb with chips |
 | `pasta_01.jpg` | Banner above Handmade Pasta | Fettuccine nests on a floured board |
 | `craft_proof_01.jpg` | Photo strip, left | Dough proofing in a banneton |
 | `craft_crumb_01.jpg` | Photo strip, middle | Macro of the open crumb |
@@ -37,7 +37,7 @@ rather feature a different loaf. Swap the `src` and `alt` in `index.html`:
 | File | Shows |
 |---|---|
 | `sig_frenchonion_01.jpg` | Caramelized onion and gruyère crumb (the house special) |
-| `sig_chocolate_01.jpg` | Dark cocoa crumb with melting chocolate chips |
+| `sig_seeded_01.jpg` | Seeded crust loaf with one slice cut |
 
 There was previously a butterfly pea blossom photo here. It was removed
 because the AI-invented blue didn't match the loaf Paul actually bakes.
