@@ -60,6 +60,10 @@ body{
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
+/* The page must never scroll sideways. body alone isn't enough — if html is
+   left visible, the root still scrolls. clip is preferred (it doesn't create
+   a scroll container); hidden is the fallback for older Safari. */
+html{overflow-x:hidden;overflow-x:clip}
 ::selection{background:var(--pink);color:#fff}
 
 /* ---- soft grain overlay ---- */
@@ -113,6 +117,15 @@ nav.scrolled{
   .nav-cta{padding:.45rem .9rem;font-size:.68rem;letter-spacing:.1em}
   .hero-kicker{letter-spacing:.26em;font-size:.7rem}
 }
+/* Small phones: the logo and the Order button together were wider than a
+   320px screen, which is what forced the page to scroll sideways. */
+@media(max-width:400px){
+  nav{padding:.85rem .7rem;gap:.5rem}
+  nav.scrolled{padding:.65rem .7rem}
+  .nav-logo{font-size:.92rem;gap:.35rem;min-width:0}
+  .nav-logo img{width:24px;height:24px;flex:none}
+  .nav-cta{padding:.4rem .7rem;font-size:.6rem;letter-spacing:.06em;white-space:nowrap}
+}
 
 /* ---- hero ---- */
 header{
@@ -121,7 +134,9 @@ header{
 }
 .hero-bg{
   position:absolute;inset:0;z-index:-2;
-  background:url("assets/hero_bright.jpg") center 60%/cover no-repeat;
+  /* Composition keeps the middle empty so the headline stays readable.
+     Alternate available: assets/hero_blossom.jpg */
+  background:url("assets/hero_marble.jpg") center center/cover no-repeat;
   animation:heroZoom 12s ease-out forwards;
   will-change:transform;
 }
@@ -190,9 +205,11 @@ h1.hero-title{
 }
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media(max-width:700px){.hero-badge{display:none}}
-/* mobile: portrait crop hides the corner loaves, so shift crop to a loaf & lift the wash */
+/* mobile: a tall viewport crops the wide hero down to a narrow vertical slice.
+   30% lands on a loaf edge and peonies up top while keeping clean marble
+   behind the headline and buttons. Re-tune this if the hero image changes. */
 @media(max-width:640px){
-  .hero-bg{background-position:left 18%;background-size:cover}
+  .hero-bg{background-position:30% center;background-size:cover}
   header::before{background:linear-gradient(180deg,rgba(255,248,245,.34) 0%,rgba(255,242,246,.20) 42%,rgba(255,238,244,.5) 78%,var(--bg) 100%)}
 }
 

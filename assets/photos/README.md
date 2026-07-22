@@ -4,6 +4,13 @@
 look until real photos of Paul's actual bread are available. They are not
 photographs of real Newman's OM products.
 
+The big hero image at the top of the page lives one folder up as
+`assets/hero_marble.jpg` (alternate: `assets/hero_blossom.jpg`), and is also
+AI-generated. It replaced an earlier hero of unknown origin. Its composition
+deliberately keeps the middle of the frame empty so the headline stays
+readable — if you swap it, pick something with a calm center, and re-check the
+mobile crop position set in `index.html` near the `max-width:640px` rule.
+
 **Replacing one with a real photo** is the goal. To swap:
 
 1. Drop the new photo into this folder.

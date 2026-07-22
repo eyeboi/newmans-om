@@ -1,0 +1,18 @@
+{
+  "image_file": "hero_a_01.jpg",
+  "created_at": "2026-07-22T11:24:29",
+  "model": "gpt-image-2",
+  "prompt": "Overhead flat lay of two rustic artisan sourdough boules with scored golden crusts and a few soft pink peony blossoms, all arranged around the outer edges and corners of a bright white marble countertop, light dusting of flour, a pale blush linen cloth in one corner, the entire center of the frame deliberately left empty as clean luminous marble, soft natural window light, airy bright and high-key, cream white and blush pink palette, editorial food photography, no text, no lettering, no people, no hands",
+  "revised_prompt": null,
+  "size": "2048x1152",
+  "quality": "medium",
+  "output_format": "jpeg",
+  "compression": 88,
+  "background": "auto",
+  "moderation": "auto",
+  "n_total": 1,
+  "variant_index": 1,
+  "reference_images": [],
+  "mask": null,
+  "estimated_cost_usd": 0.1192
+}

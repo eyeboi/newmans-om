@@ -1,0 +1,18 @@
+{
+  "image_file": "hero_b_01.jpg",
+  "created_at": "2026-07-22T11:25:34",
+  "model": "gpt-image-2",
+  "prompt": "Bright airy overhead scene of freshly baked sourdough loaves, a rumpled linen cloth, a small bowl of flour and scattered cherry blossom petals, all framing the outer border of a pale marble surface, a large empty luminous open space through the whole middle of the image, delicate flour dusting, soft diffused morning light, high-key cream white and blush pink, editorial food photography, no text, no lettering, no people, no hands",
+  "revised_prompt": null,
+  "size": "2048x1152",
+  "quality": "medium",
+  "output_format": "jpeg",
+  "compression": 88,
+  "background": "auto",
+  "moderation": "auto",
+  "n_total": 1,
+  "variant_index": 1,
+  "reference_images": [],
+  "mask": null,
+  "estimated_cost_usd": 0.1192
+}
