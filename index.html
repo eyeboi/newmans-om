@@ -400,7 +400,7 @@ footer{
        [EDIT] MENU PASTA    — pasta + prices
        [EDIT] ORDER STEPS   — the 4 numbered how-to-order cards
        [EDIT] PROMO         — the 50% off first order box
-       [EDIT] ORDER FORM    — the online order form
+       [EDIT] ORDER FORM    — the online order form (TURNED OFF for now)
        [EDIT] CONTACT       — phone / Zelle / Venmo
        [EDIT] FOOTER        — bottom-of-page contact info
 
@@ -566,12 +566,21 @@ footer{
       <p>your first order, because the first loaf is how it starts.</p>
     </div>
 
-    <!-- [EDIT] ORDER FORM — submissions are emailed by Web3Forms
-         (web3forms.com). The access_key below decides WHICH inbox gets
-         the orders; it is tied to the email address used to create it.
-         Change the key only if the destination inbox changes, and get
-         the new key from the Web3Forms account. Everything else here is
-         safe to reword. No payment is taken on this site. -->
+    <!-- [EDIT] ORDER FORM — CURRENTLY TURNED OFF (disabled 2026-07-22).
+         The whole form is commented out below, so the site shows text /
+         Zelle / Venmo ordering only. Nothing was deleted.
+
+         TO TURN IT BACK ON: delete the line that says OPEN-COMMENT below
+         and the line that says CLOSE-COMMENT after the form. That's it.
+         The CSS and JavaScript for the form were left in place, so it
+         will just start working again.
+
+         When it comes back, note: submissions are emailed by Web3Forms
+         (web3forms.com), and the access_key decides WHICH inbox gets the
+         orders. Only change that key if the destination inbox changes.
+         No payment is taken on this site either way. -->
+
+    <!-- OPEN-COMMENT (delete this line to re-enable the form)
     <div class="order-form-wrap reveal" id="order-form-wrap">
       <div class="order-form-head">
         <h3>Order <em>online</em></h3>
@@ -614,6 +623,7 @@ footer{
         </div>
       </form>
     </div>
+    CLOSE-COMMENT (delete this line to re-enable the form) -->
 
     <!-- [EDIT] CONTACT — phone, Zelle, Venmo. If the phone number changes
          you must update it in THREE spots on each line: the visible text,
@@ -663,6 +673,9 @@ document.querySelectorAll('.reveal-stagger').forEach(grid=>{
 });
 
 // order form -> Web3Forms (AJAX submit with inline status)
+// The form is currently commented out in the HTML above, so orderForm is
+// null and this whole block safely does nothing. Left in place on purpose
+// so re-enabling the form is a two-line change. Don't delete it.
 const orderForm=document.getElementById('orderForm');
 if(orderForm){
   const statusEl=document.getElementById('formStatus');

@@ -29,10 +29,12 @@ make changes at any time.
 - **Publishing** is automatic: when a change is saved to `main`, GitHub
   Pages redeploys. It usually takes **1–2 minutes** to show up. If you don't
   see your change, hard-refresh (Cmd+Shift+R).
-- **Online orders** are emailed via a free service called
-  [Web3Forms](https://web3forms.com). The site takes **no payment** — an
-  order comes in by email, and then Paul or Freddi texts the customer back
-  to confirm the details and the total.
+- **Orders come in by text** (or Zelle/Venmo contact) — the site takes no
+  payment. Paul or Freddi confirms the details and total over text.
+- **The online order form is currently turned off.** It still exists in
+  `index.html`, just commented out, and can be switched back on by deleting
+  two marker lines (search `OPEN-COMMENT`). When it's on, submissions are
+  emailed via a free service called [Web3Forms](https://web3forms.com).
 - **Payments** happen off-site: Zelle or Venmo, arranged over text.
 
 ## The files in this folder

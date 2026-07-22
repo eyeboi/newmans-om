@@ -25,8 +25,11 @@ Zelle or Venmo.
 - Hosted by **GitHub Pages** from `main` at the repo root. No build step.
 - Repo: `https://github.com/eyeboi/newmans-om`.
 - The `CNAME` file binds the custom domain. Never delete or rename it.
-- Order form posts to **Web3Forms**; the `access_key` in `index.html`
-  determines the destination inbox.
+- **The online order form is disabled** (commented out in `index.html` as of
+  2026-07-22, to be revisited). Re-enable by deleting the `OPEN-COMMENT` and
+  `CLOSE-COMMENT` marker lines. Its CSS and JS were deliberately left intact;
+  the JS is null-guarded and no-ops while the form is off. When live, it posts
+  to **Web3Forms** and the `access_key` determines the destination inbox.
 - The whole site is a single self-contained `index.html` plus `assets/`.
 
 ## Who you're talking to
