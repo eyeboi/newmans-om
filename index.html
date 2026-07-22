@@ -331,6 +331,46 @@ h2 em{font-style:italic;color:var(--pink-deep);font-weight:440}
 .pay-chip b{color:var(--pink-deep);font-weight:600}
 .pay-chip .ic{font-size:1rem}
 
+/* ---- order form ---- */
+.order-form-wrap{margin:3.4rem auto 0;max-width:760px}
+.order-form-head{text-align:center;margin-bottom:1.8rem}
+.order-form-head h3{font-family:var(--serif);font-weight:560;font-size:clamp(1.7rem,3.6vw,2.3rem);color:var(--ink);line-height:1.1}
+.order-form-head h3 em{font-style:italic;color:var(--pink-deep);font-weight:440}
+.order-form-head p{color:var(--ink-2);font-size:.95rem;margin:.6rem auto 0;max-width:34rem}
+.order-form{
+  position:relative;border:1px solid var(--line);border-radius:22px;padding:clamp(1.6rem,4vw,2.6rem);
+  background:var(--panel);box-shadow:0 18px 50px rgba(209,56,123,.10);
+  display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;
+}
+.order-form .full{grid-column:1/-1}
+.field{display:flex;flex-direction:column;gap:.4rem;text-align:left}
+.field label{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.field label .req{color:var(--pink-deep)}
+.field input,.field textarea{
+  font-family:var(--sans);font-size:.95rem;color:var(--ink);background:var(--bg);
+  border:1.5px solid var(--line);border-radius:12px;padding:.8rem .9rem;width:100%;
+  transition:border-color .25s,box-shadow .25s,background .25s;
+}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-faint)}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:var(--pink);background:#fff;box-shadow:0 0 0 4px rgba(232,91,150,.14);
+}
+.field textarea{resize:vertical;min-height:112px}
+.check-row{grid-column:1/-1;display:flex;align-items:flex-start;gap:.7rem;text-align:left}
+.check-row input{width:18px;height:18px;margin-top:.15rem;accent-color:var(--pink-deep);flex:none}
+.check-row label{font-size:.9rem;color:var(--ink-2);letter-spacing:normal;text-transform:none;font-weight:500}
+.check-row label b{color:var(--pink-deep);font-weight:600}
+.order-form .submit-row{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-top:.3rem}
+.order-form .btn{width:100%;max-width:320px;justify-content:center;border:none;cursor:pointer;font-family:var(--sans)}
+.order-form .btn[disabled]{opacity:.65;cursor:default;transform:none}
+.form-note{font-size:.78rem;color:var(--ink-faint);text-align:center;max-width:30rem}
+.form-status{grid-column:1/-1;text-align:center;font-size:.95rem;padding:.9rem 1rem;border-radius:12px;display:none}
+.form-status.show{display:block}
+.form-status.ok{background:var(--pink-soft);color:var(--berry);border:1px solid rgba(178,53,108,.25)}
+.form-status.err{background:#ffe9e9;color:#b02a2a;border:1px solid rgba(176,42,42,.25)}
+.hp{position:absolute!important;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
+@media(max-width:620px){.order-form{grid-template-columns:1fr}}
+
 /* ---- footer ---- */
 footer{
   border-top:1px solid var(--line);padding:4rem clamp(1.25rem,5vw,4rem) 2.5rem;
@@ -483,6 +523,50 @@ footer{
       <div class="big">50% off</div>
       <p>your first order, because the first loaf is how it starts.</p>
     </div>
+
+    <div class="order-form-wrap reveal" id="order-form-wrap">
+      <div class="order-form-head">
+        <h3>Order <em>online</em></h3>
+        <p>Prefer not to text? Send your order right here. Place it <b>before 9 AM</b> for next-day pickup — no payment now, we'll text you to confirm the details and total.</p>
+      </div>
+      <form class="order-form" id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="583f05c8-cb41-471c-b865-47031d9ad7f4">
+        <input type="hidden" name="subject" value="New order from Newman's OM website">
+        <input type="hidden" name="from_name" value="Newman's OM Website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="field">
+          <label for="of-name">Name <span class="req">*</span></label>
+          <input id="of-name" type="text" name="name" required autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="of-phone">Phone <span class="req">*</span></label>
+          <input id="of-phone" type="tel" name="phone" required autocomplete="tel" placeholder="(954) 555-1234">
+        </div>
+        <div class="field">
+          <label for="of-email">Email <span class="req">*</span></label>
+          <input id="of-email" type="email" name="email" required autocomplete="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="of-date">Pickup date <span class="req">*</span></label>
+          <input id="of-date" type="date" name="pickup_date" required>
+        </div>
+        <div class="field full">
+          <label for="of-order">Your order <span class="req">*</span></label>
+          <textarea id="of-order" name="order_details" required placeholder="List the loaves &amp; pasta you'd like with quantities — e.g. 2× Classic Country Sourdough, 1× Rosemary &amp; Sea Salt, 1× Handmade Fettuccine. Browse the menu above for flavors."></textarea>
+        </div>
+        <div class="check-row">
+          <input id="of-first" type="checkbox" name="first_order" value="Yes — first order, apply 50% off">
+          <label for="of-first">This is my <b>first order</b> — apply my <b>50% off</b></label>
+        </div>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        <div class="submit-row">
+          <button class="btn btn-gold" type="submit" id="orderSubmit">Send Order</button>
+          <p class="form-note">No payment now. We'll text you at the number above to confirm your order and total.</p>
+        </div>
+      </form>
+    </div>
+
     <div class="pay reveal">
       <div class="pay-chip"><span class="ic">💬</span>Text orders: <b><a class="sms-link" href="sms:+19545983667" aria-label="Text Newman's OM at 954-598-3667">954-598-3667</a></b></div>
       <div class="pay-chip"><span class="ic">🏦</span>Zelle: <b>954-598-3667</b></div>
@@ -523,6 +607,46 @@ document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>io.observe(el))
 document.querySelectorAll('.reveal-stagger').forEach(grid=>{
   grid.querySelectorAll('.card').forEach((c,i)=>c.style.transitionDelay=(i*.06)+'s');
 });
+
+// order form -> Web3Forms (AJAX submit with inline status)
+const orderForm=document.getElementById('orderForm');
+if(orderForm){
+  const statusEl=document.getElementById('formStatus');
+  const submitBtn=document.getElementById('orderSubmit');
+  const dateEl=document.getElementById('of-date');
+  // default pickup = tomorrow, and block past dates
+  if(dateEl){
+    const t=new Date();t.setDate(t.getDate()+1);
+    const iso=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+    dateEl.min=iso;dateEl.value=iso;
+  }
+  orderForm.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const original=submitBtn.textContent;
+    submitBtn.disabled=true;submitBtn.textContent='Sending…';
+    statusEl.className='form-status';
+    try{
+      const res=await fetch(orderForm.action,{
+        method:'POST',headers:{'Accept':'application/json'},body:new FormData(orderForm)
+      });
+      const data=await res.json();
+      if(res.ok&&data.success){
+        statusEl.textContent="Thanks — your order is in! We'll text you to confirm the details and total.";
+        statusEl.className='form-status ok show';
+        orderForm.reset();
+        if(dateEl){dateEl.value=dateEl.min;}
+      }else{
+        statusEl.textContent=(data&&data.message)?data.message:'Something went wrong — please text your order to 954-598-3667.';
+        statusEl.className='form-status err show';
+      }
+    }catch(err){
+      statusEl.textContent='Network error — please text your order to 954-598-3667.';
+      statusEl.className='form-status err show';
+    }finally{
+      submitBtn.disabled=false;submitBtn.textContent=original;
+    }
+  });
+}
 
 // subtle hero parallax
 const heroBg=document.querySelector('.hero-bg');
