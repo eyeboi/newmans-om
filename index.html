@@ -386,6 +386,29 @@ footer{
 </head>
 <body>
 
+<!-- ===================================================================
+     NEWMAN'S OM — WEBSITE SOURCE
+     Everything visitors see is in this one file. Plain-language guide
+     to making changes: see README.md in this same folder.
+
+     Jump to a section by searching for its marker:
+       [EDIT] HERO          — the big opening screen
+       [EDIT] MARQUEE       — the scrolling pink banner
+       [EDIT] STORY         — the "about the bakery" paragraphs
+       [EDIT] MENU CLASSICS — classic loaves + prices
+       [EDIT] MENU SIGNATURE— signature loaves + prices
+       [EDIT] MENU PASTA    — pasta + prices
+       [EDIT] ORDER STEPS   — the 4 numbered how-to-order cards
+       [EDIT] PROMO         — the 50% off first order box
+       [EDIT] ORDER FORM    — the online order form
+       [EDIT] CONTACT       — phone / Zelle / Venmo
+       [EDIT] FOOTER        — bottom-of-page contact info
+
+     HEADS UP: the phone number and Venmo handle appear in more than one
+     place (CONTACT and FOOTER). Change every copy or they'll disagree.
+     ================================================================ -->
+
+<!-- [EDIT] NAV — the menu bar pinned to the top of the page -->
 <nav id="nav">
   <a class="nav-logo" href="#top"><img src="assets/schnauzer_bright.png" alt="Newman's OM schnauzer mark">Newman's&nbsp;OM</a>
   <ul class="nav-links">
@@ -396,6 +419,7 @@ footer{
   </ul>
 </nav>
 
+<!-- [EDIT] HERO — first screen. Headline, tagline, and the two buttons. -->
 <header id="top">
   <div class="hero-bg"></div>
   <p class="hero-kicker">Fresh Sourdough · Jacaranda Cay</p>
@@ -417,12 +441,15 @@ footer{
   <div class="scroll-hint">Scroll</div>
 </header>
 
+<!-- [EDIT] MARQUEE — scrolling pink banner. Each <span> is one phrase;
+     add or remove spans freely, the loop repeats them automatically. -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track" id="marqueeTrack">
     <span>Fresh Sourdough</span><span>Baked Everyday</span><span>50% Off Your First Order</span><span>Handmade Pasta</span><span>Baked in Jacaranda Cay</span>
   </div>
 </div>
 
+<!-- [EDIT] STORY — "about the bakery" text and the three stat numbers. -->
 <section class="story">
   <div class="wrap">
     <div class="reveal">
@@ -442,6 +469,11 @@ footer{
   </div>
 </section>
 
+<!-- [EDIT] MENU CLASSICS — one <div class="card"> per loaf.
+     To change a price, edit the number inside <div class="price">.
+     To add a loaf, copy a whole card line and edit the name/price/ingredients.
+     To retire a loaf, delete its whole card line.
+     Optional badge: <span class="tag">Crowd Favorite</span> (use "tag blue" for blue). -->
 <section class="menu" id="classics">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -464,6 +496,8 @@ footer{
   </div>
 </section>
 
+<!-- [EDIT] MENU SIGNATURE — same card format as Classics above.
+     "card feature" makes a card stand out (currently French Onion). -->
 <section class="menu" id="signature" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -488,6 +522,8 @@ footer{
   </div>
 </section>
 
+<!-- [EDIT] MENU PASTA — one <div class="pasta-row"> per shape.
+     Leave <div class="dots"></div> alone; it draws the dotted leader line. -->
 <section class="pasta" id="pasta">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -513,17 +549,29 @@ footer{
       <p class="sec-kicker" style="justify-content:center">Ordering</p>
       <h2 style="max-width:none">Good bread takes <em>24 hours</em></h2>
     </div>
+    <!-- [EDIT] ORDER STEPS — the 4 numbered cards. This is where the
+         9 AM cutoff and the pickup/delivery wording live. -->
     <div class="order-grid">
       <div class="order-step reveal"><div class="n">01</div><h3>Pick your loaf</h3><p>Choose from 18+ classic and signature flavors, or create your own.</p></div>
       <div class="order-step reveal"><div class="n">02</div><h3>Text before 9 AM</h3><p>Place or text your order <b>before 9 AM</b> to guarantee next-day pickup. Late orders will be notified if they can be made for the following day.</p></div>
       <div class="order-step reveal"><div class="n">03</div><h3>We bake overnight</h3><p>Traditional sourdough ferments for a full <b>24 hours</b>, mixed, shaped, and baked fresh for you.</p></div>
       <div class="order-step reveal"><div class="n">04</div><h3>Pick up next day</h3><p>Collect your loaf in <b>Jacaranda Cay</b>, still warm if you time it right.</p></div>
     </div>
+    <!-- [EDIT] PROMO — the 50% off first-order box. If the offer ever
+         ends, delete this whole <div class="promo"> block AND the
+         "50% Off Your First Order" span up in the MARQUEE, AND the
+         first-order checkbox in the ORDER FORM below. -->
     <div class="promo reveal">
       <div class="big">50% off</div>
       <p>your first order, because the first loaf is how it starts.</p>
     </div>
 
+    <!-- [EDIT] ORDER FORM — submissions are emailed by Web3Forms
+         (web3forms.com). The access_key below decides WHICH inbox gets
+         the orders; it is tied to the email address used to create it.
+         Change the key only if the destination inbox changes, and get
+         the new key from the Web3Forms account. Everything else here is
+         safe to reword. No payment is taken on this site. -->
     <div class="order-form-wrap reveal" id="order-form-wrap">
       <div class="order-form-head">
         <h3>Order <em>online</em></h3>
@@ -567,6 +615,10 @@ footer{
       </form>
     </div>
 
+    <!-- [EDIT] CONTACT — phone, Zelle, Venmo. If the phone number changes
+         you must update it in THREE spots on each line: the visible text,
+         the href="sms:+1..." link, and the aria-label. Same number also
+         appears in the FOOTER at the bottom of this file. -->
     <div class="pay reveal">
       <div class="pay-chip"><span class="ic">💬</span>Text orders: <b><a class="sms-link" href="sms:+19545983667" aria-label="Text Newman's OM at 954-598-3667">954-598-3667</a></b></div>
       <div class="pay-chip"><span class="ic">🏦</span>Zelle: <b>954-598-3667</b></div>
@@ -575,6 +627,8 @@ footer{
   </div>
 </section>
 
+<!-- [EDIT] FOOTER — baker name, phone, Venmo, copyright year.
+     Second copy of the contact info; keep it in sync with CONTACT above. -->
 <footer>
   <div class="reveal in">
     <div class="foot-logo">Newman's <em>OM</em></div>
