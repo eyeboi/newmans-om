@@ -43,6 +43,7 @@ make changes at any time.
 |---|---|
 | `index.html` | **The entire website.** All the text, prices, and styling are in this one file. |
 | `assets/` | Images: hero photo, schnauzer logo, and the link-preview image. |
+| `assets/photos/` | The bread and pasta photos on the page. Currently **AI-generated placeholders** — see the README in that folder for how to swap in real photos. |
 | `CNAME` | Tells GitHub Pages the site is `newmansom.com`. Leave it alone. |
 | `README.md` | This file. |
 | `AGENTS.md` | Instructions for AI assistants (Codex, Claude) working on this repo. |

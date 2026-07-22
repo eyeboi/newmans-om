@@ -1,0 +1,18 @@
+{
+  "image_file": "craft_proof_01.jpg",
+  "created_at": "2026-07-22T11:02:35",
+  "model": "gpt-image-2",
+  "prompt": "Close-up of a round of proofed sourdough dough resting in a floured rattan banneton proofing basket, delicate spiral flour pattern across its surface, on a marble counter, warm natural window light, soft gentle shadows, cream and blush pink color palette, pale marble and light wood surfaces, 35mm film photography aesthetic, shallow depth of field, cozy home kitchen not a commercial bakery, artisanal editorial food photography, no text, no lettering, no people, no hands",
+  "revised_prompt": null,
+  "size": "1024x1024",
+  "quality": "medium",
+  "output_format": "jpeg",
+  "compression": 85,
+  "background": "auto",
+  "moderation": "auto",
+  "n_total": 1,
+  "variant_index": 1,
+  "reference_images": [],
+  "mask": null,
+  "estimated_cost_usd": 0.053
+}

@@ -76,6 +76,17 @@ section a non-coder would plausibly want to change.
   as a checkbox in the ORDER FORM.
 - **The 9 AM cutoff** appears in ORDER STEPS and in the order form intro.
 
+## Photography
+
+The photos in `assets/photos/` are **AI-generated placeholders**, added
+2026-07-22 to establish the visual direction. They are not pictures of real
+Newman's OM bread. The plan is to replace them with real photos of Paul's
+bakes. See `assets/photos/README.md` for the swap procedure and crop guidance.
+
+Because they depict menu items the bakery actually sells, prefer swapping in
+real photos as soon as any exist, and don't add captions that assert a
+placeholder is a specific real loaf.
+
 ## House style
 
 - The voice is warm, plainspoken, and a little wry ("baked everyday, baked for
